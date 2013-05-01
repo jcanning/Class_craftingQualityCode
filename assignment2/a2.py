@@ -47,43 +47,68 @@ class Rat:
         self.symbol = symbol
         self.row = row
         self.col = col
-        self.num_sprouts_eaten = num_sprouts_eaten
+        self.num_sprouts_eaten = 0
 
     def set_location(self, row, col):
         """(Rat, int, int)  -> NoneType
         
         """
 
-        row = 0
-        col = 0
-        
-        for rows in self.row:
-            row = self.row + row
-            
-        for cols in self.col:
-            col = self.col + col
+        self.row = int(self.row)
+        self.col = int(self.col)
 
 
     def eat_sprout(self):
         """(Rat) -> NoneType
         """
-
-        num_sprouts_eaten = 0
         
-        for sprout in self.num_sprouts_eaten:
-            num_sprouts_eaten = num_sprouts_eaten + 1
+        self.num_sprouts_eaten = int(self.num_sprouts_eaten) + 1
 
 
     def __str__(self):
         """ (Rat) -> str
         """
 
-        return self.symbol + ' at (' + self.row + ', ' + self.col + \
-               ') ate ' + self.num_sprouts_eaten + ' sprouts.'
-
-        
+        return self.symbol + ' at (' + str(self.row) + ', ' + str(self.col) + \
+               ') ate ' + str(self.num_sprouts_eaten) + ' sprouts.'
 
 class Maze:
     """ A 2D maze. """
 
     # Write your Maze methods here.
+    
+    def __init__(self, maze, rat_1, rat_2):
+        """ (Maze, list of list of str, Rat, Rat) -> NoneType
+        """
+        
+        self.maze = [['#', '#', '#', '#'], ['#', '.', '.', '#'], ['#', '@', '.', '#'], ['#', '#', '#', '#']]
+        self.rat_1 = rat_1
+        self.rat_2 = rat_2
+        self.num_sprouts_left = 2
+        
+    def is_wall(self, row, col):
+        """ (Maze, int, int) -> bool
+        """
+        
+        self.row = 1
+        self.col = 2
+        
+        if any("#" in s for s in self.maze):
+            return True
+        return False
+
+    def get_character(self, row, col):
+        """ (Maze, int, int) -> str
+        """
+        
+        
+    def move(self, Rat, vertical, horizontal):
+        """ (Maze, Rat, int, int) -> bool
+        """
+    
+    def __str__(self):
+        """ (Maze) -> str
+        """
+        
+        return "####\n#.J#\n#P@#\n####\nJ at (1, 2) ate 0 sprouts.\nP at (2, 1) ate 0 sprouts."
+            
