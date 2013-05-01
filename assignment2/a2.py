@@ -37,7 +37,7 @@ class Rat:
     """ A rat caught in a maze. """
 
     # Write your Rat methods here.
-    def __init__(Rat, symbol, row, col):
+    def __init__(self, symbol, row, col):
         """(Rat, str, int, int) -> NoneType
         >>> Player1 = Rat('P', 1, 4)
         >>> Player2 = Rat('J', 2, 3)
@@ -49,17 +49,22 @@ class Rat:
         self.col = col
         self.num_sprouts_eaten = num_sprouts_eaten
 
-    def set_location(Rat,row,col):
+    def set_location(self, row, col):
         """(Rat, int, int)  -> NoneType
         
         """
 
         row = 0
         col = 0
+        
+        for rows in self.row:
+            row = self.row + row
+            
+        for cols in self.col:
+            col = self.col + col
 
-                
 
-    def eat_sprout(self,Rat):
+    def eat_sprout(self):
         """(Rat) -> NoneType
         """
 
@@ -75,12 +80,6 @@ class Rat:
 
         return self.symbol + ' at (' + self.row + ', ' + self.col + \
                ') ate ' + self.num_sprouts_eaten + ' sprouts.'
-
-        
-
-        
-
-    
 
         
 
